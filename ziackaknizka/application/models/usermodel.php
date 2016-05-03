@@ -1,7 +1,7 @@
 <?php
 
 
-class userModel extends CI_Model
+class usermodel extends CI_Model
 {
 	function login($username, $password)
 	{
@@ -12,14 +12,14 @@ class userModel extends CI_Model
 		$this -> db -> limit(1);
 
 		$query = $this -> db -> get();
-
+		var_dump($this -> db->last_query());
 		if($query -> num_rows() == 1)
 		{
 		 return $query->result();
 		}
 		else
 		{
-		 return "Error lol";
+		 return false;
 		}
 	}
 

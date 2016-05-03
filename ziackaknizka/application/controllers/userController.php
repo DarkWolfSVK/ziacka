@@ -5,7 +5,7 @@ class userController extends CI_Controller {
 	function __construct()
 	{
 		parent::__construct();
-		$this->load->model('userModel');
+		$this->load->model('usermodel');
 
 		$this->load->helper('form');
 		

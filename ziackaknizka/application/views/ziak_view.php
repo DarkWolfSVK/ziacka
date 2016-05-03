@@ -27,9 +27,9 @@
    			$(document).ready(function(){
    				$.getJSON("ajax/ziak", function(data){
    					var table = $('<table class="table table-bordered table-hover"></table>');
-   					table.append('<tr><th>Predmet</th><th>Znamky</th></tr>');
+   					table.append('<tr><th>Predmet</th><th>Znamky</th><th>Priemer</th></tr>');
    					$.each(data, function(k,v) {
-   							table.append('<tr><td>'+k+'</td><td>'+v+'</td></tr>');
+   							table.append('<tr><td>'+k+'</td><td>'+v.join(', ')+'</td><td>'+Math.round(v.reduce(function(a, b) { return parseInt(a) + parseInt(b); }) / v.length*1000)/1000+'</td></tr>');
    					});
    					$('main').append(table);
    				});

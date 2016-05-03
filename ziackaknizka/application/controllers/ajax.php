@@ -18,7 +18,8 @@ class ajax extends CI_Controller {
       $result = $this->usermodel->get_ziak_znamky($this->session->userdata('result')->id);
       $znamky = [];
       foreach($result as $row) {
-          $znamky[$row->nazov] = (isset($znamky[$row->nazov]) ? $znamky[$row->nazov].',' : '').$row->znamka;
+          if(!isset($znamky[$row->nazov])) $znamky[$row->nazov]= [];
+          $znamky[$row->nazov][] = $row->znamka;
       }
       echo json_encode($znamky);
     }

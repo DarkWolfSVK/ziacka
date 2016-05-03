@@ -19,20 +19,20 @@ class VerifyLogin extends CI_Controller {
    if($this->form_validation->run())
    {
      //Field validation failed.  User redirected to login page
-
+/*
    $meno = ($_POST['prihlasovacie_meno']);
    $pass = sha1($_POST['heslo']);
-   $this->check_database($pass);
+   $this->check_database($pass);*/
+   
    if ($this->session->userdata['logged_in'] == true)
-     {
-     var_dump($this->session->userdata);
+      {
       // $this->session->set_userdata($data);
-       redirect('home');
-     }
-     else
-     {
-      echo "chyba";
-     }
+        redirect('home');
+      }
+      else
+      {
+        $this->load->view('login_view');
+      }
    }
    else
    {
@@ -50,6 +50,9 @@ class VerifyLogin extends CI_Controller {
  
    //query the database
    $result = $this->usermodel->login($prihlasovacie_meno, $heslo);
+   var_dump($prihlasovacie_meno); 
+   var_dump($heslo); 
+   var_dump($result);
     $result = $result['0'];
    if($result)
    {
