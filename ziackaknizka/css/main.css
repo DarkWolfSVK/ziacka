@@ -1,10 +1,17 @@
 body{
-	padding: 0px 20px;
 }
 
 .table{
 	width: 60%;
 	margin-left: 20%;
+}
+
+
+.pridaj-znamku{
+	margin-bottom: 20px;
+	padding-left: 5%;
+	padding-top: 5px;
+
 }
 
 .form-inline{
@@ -16,6 +23,49 @@ body{
 	margin-right: 5px;
 }
 
-.login-form{
-	margin-left:5%;	
+.login-form{	
+	margin-left: 40%;
+	padding: 10px;
+	padding left: 5%;
+	width: 20%;
+	background-color: #e6f3ff;
+	border: 1px #4da9ff solid;
+	text-align: center;
+}
+
+.heslo-login{
+	margin: 10px 0px 10px 0px;
+}
+
+.header-login{
+	text-align: center;
+	margin: 0px;
+	margin-bottom: 100px;
+	background-color: #c4e3f3;
+	//border-bottom: 1px #4da9ff solid;
+	padding: 5px;
+}
+
+.header-logged{
+	text-align: center;
+	margin-top: 0px;
+	margin-bottom: 20px;
+	background-color: #c4e3f3;
+	//border-bottom: 1px #4da9ff solid;
+	padding: 10px 20px 5px 20px;
+}
+
+.header-ziak{
+	margin-bottom: 50px;
+}
+.logout-button{
+	margin-top: -50px;
+}
+
+.invalid{
+	text-align: center;
+}
+
+.triedny{
+	margin-left: 20%;	
 }

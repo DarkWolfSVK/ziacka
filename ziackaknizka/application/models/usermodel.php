@@ -12,14 +12,14 @@ class usermodel extends CI_Model
 		$this -> db -> limit(1);
 
 		$query = $this -> db -> get();
-		var_dump($this -> db->last_query());
+		
 		if($query -> num_rows() == 1)
 		{
-		 return $query->result();
+			return $query->result();
 		}
 		else
 		{
-		 return false;
+			return false;
 		}
 	}
 
@@ -51,6 +51,17 @@ class usermodel extends CI_Model
 		$this -> db -> select('*');
 		$this -> db -> from('uzivatel');
 		$this -> db -> where('rola',"2");
+		
+		$query = $this -> db -> get();
+
+		return $query->result();
+	}
+
+	function get_ucitelia()
+	{	
+		$this -> db -> select('*');
+		$this -> db -> from('uzivatel');
+		$this -> db -> where('rola',"1");
 		
 		$query = $this -> db -> get();
 

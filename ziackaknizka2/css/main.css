@@ -1,0 +1,21 @@
+body{
+	padding: 0px 20px;
+}
+
+.table{
+	width: 60%;
+	margin-left: 20%;
+}
+
+.form-inline{
+	margin-left:25%;
+	padding-bottom: 50px;
+}
+
+.form-control{
+	margin-right: 5px;
+}
+
+.login-form{
+	margin-left:5%;	
+}

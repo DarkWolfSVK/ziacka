@@ -34,6 +34,7 @@ class ajax extends CI_Controller {
       $vsetko = [];
       $vsetko['triedy'] = $this->usermodel->get_triedy();
       $vsetko['ziaci'] = $this->usermodel->get_ziaci();
+      $vsetko['ucitelia'] = $this->usermodel->get_ucitelia();
       $vsetko['predmety'] = $this->usermodel->get_predmety();
       $vsetko['znamky'] = $this->usermodel->get_znamky();
       $znamky = [];

@@ -13,24 +13,31 @@
 			<meta charset="utf-8" />
  	</head>
  	<body>
- 		<header  class="page-header">
-   			<a href="home/logout" class="pull-right btn btn-info btn-sm">Odhlásiť sa</a>
-			<h3> Vitaj
+ 		<header  class="page-header header-logged">
+			<h1> Vitaj
 			<?php	
-			if (isset($data))	{echo $data->meno.' '.$data->priezvisko; } ?></h3>
+			if (isset($data))	{echo $data->meno.' '.$data->priezvisko; } ?></h1>
+   			<a href="home/logout" class="pull-right btn btn-info btn-sm logout-button">Odhlásiť sa</a>
    		</header>
    		<main>
 
    		</main>
 		<script type="text/javascript">
 		   			$(document).ready(function(){
-		   				console.log('script run');
 		   				$.getJSON("ajax/ucitel", function(data){
-		   					console.log(data);
+
 		   					$.each(data.triedy, function(i,trieda)
 		   					{
+		   						var class_teacher;
+		   						$.each(data.ucitelia,function(j,ucitel)
+		   						{
+		   							if (ucitel.trieda != trieda.id) return;
+		   							class_teacher = $('<h4 class="triedny">'+ucitel.meno + ' ' + ucitel.priezvisko+'</h4>');
+		   						});
+								$('main').append(class_teacher);
+
 								var table = $('<table class="table table-bordered table-hover"></table>');
-								var nadpis = $('<tr></tr>');
+								var nadpis = $('<tr class="info"></tr>');
 								nadpis.append('<th>'+trieda.trieda+'</th>');
 								$.each(data.predmety, function(j,predmet)
 								{
@@ -49,6 +56,7 @@
 										{
 											$.each(data.znamky[ziak.id][predmet.id], function(znamkaid,znamka){
 												znmk.push('<a href="ajax/deleteznamka/'+znamkaid+'" class="ajax">'+znamka+"</a>");
+											//	znmk.push(Math.round(znamka.reduce(function(a, b) { return parseInt(a) + parseInt(b); }) / znamka.length*1000)/1000);
 											});
 										}
 										riadok.append('<td data-id="'+predmet.id+'">'+znmk.join(', ')+'</td>');
@@ -56,7 +64,7 @@
 									table.append(riadok);
 								});
 								$('main').append(table);
-								var pridaj = $('<form class="pridaj_znamku form-inline" action="ajax/addznamka/"></form>');
+								var pridaj = $('<form class="form-inline .sr-only pridaj-znamku" action="ajax/addznamka/"></form>');
 								var meno = $('<select name="ziak" class="form-control"></select>');
 								$.each(data.ziaci, function(j,ziak)
 								{

@@ -14,11 +14,11 @@
  	</head>
 	</head>
 	<body>
-		<header>
-   			<a href="home/logout" class="pull-right btn btn-info btn-sm">Odhlásiť sa</a>
-			<h3> Vitaj 
+		<header class="page-header header-logged header-ziak">
+			<h1> Vitaj 
 			<?php	
-			if (isset($data))	{echo $data->meno.' '.$data->priezvisko; } ?></h3>
+			if (isset($data))	{echo $data->meno.' '.$data->priezvisko; } ?></h1>
+   			<a href="home/logout" class="pull-right btn btn-info btn-sm logout-button">Odhlásiť sa</a>
    		</header>
    		<main>
 
